@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coursework | Danny Liu</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        ios: {
+                            bg: '#fbfbfd', 
+                            card: '#ffffff',
+                            text: '#1d1d1f',
+                            subtext: '#86868b',
+                            blue: '#0071e3',
+                            blueHover: '#0077ED',
+                            darkBg: '#000000',
+                            darkCard: '#1c1c1e',
+                            darkText: '#f5f5f7',
+                        }
+                    },
+                    boxShadow: {
+                        'glass': '0 8px 30px rgba(0, 0, 0, 0.12)',
+                        'glow': '0 0 20px rgba(0, 113, 227, 0.5)',
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.8s ease-out forwards',
+                        'slide-up': 'slideUp 0.8s ease-out forwards',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { -webkit-font-smoothing: antialiased; }
+        .bento-card {
+            transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        .bento-card:hover {
+            transform: scale(1.01);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+        }
+        /* Custom scrollbar for lists */
+        .course-list::-webkit-scrollbar {
+            width: 6px;
+        }
+        .course-list::-webkit-scrollbar-thumb {
+            background-color: #cbd5e1;
+            border-radius: 20px;
+        }
+        .dark .course-list::-webkit-scrollbar-thumb {
+            background-color: #475569;
+        }
+    </style>
+</head>
+<body class="bg-ios-bg text-ios-text dark:bg-ios-darkBg dark:text-ios-darkText transition-colors duration-500">
+
+    <!-- Navbar -->
+    <nav class="fixed top-0 w-full z-50 bg-white/70 dark:bg-black/70 backdrop-blur-xl border-b border-gray-200/50 dark:border-gray-800/50 transition-colors duration-500">
+        <div class="max-w-6xl mx-auto px-6 h-14 flex items-center justify-between">
+            <!-- Link back to home -->
+            <a href="index.html" class="font-semibold tracking-tight text-lg hover:text-ios-blue transition-colors flex items-center gap-2">
+                <i data-lucide="arrow-left" class="w-4 h-4"></i> Back to Home
+            </a>
+            <div class="flex items-center gap-6">
+                <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors focus:outline-none">
+                    <i data-lucide="moon" class="w-5 h-5 hidden dark:block text-white"></i>
+                    <i data-lucide="sun" class="w-5 h-5 block dark:hidden text-black"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <section class="pt-32 pb-10 px-6 max-w-6xl mx-auto text-center animate-slide-up">
+        <h1 class="text-4xl md:text-6xl font-bold tracking-tighter mb-4">
+            Academic <span class="text-transparent bg-clip-text bg-gradient-to-r from-ios-blue to-purple-500">Curriculum</span>
+        </h1>
+        <p class="text-lg text-ios-subtext dark:text-gray-400 max-w-2xl mx-auto">
+            A comprehensive breakdown of my graduate and undergraduate studies, spanning Mechanical Engineering, Industrial Operations, and Fluid Dynamics.
+        </p>
+    </section>
+
+    <!-- Coursework Grid -->
+    <section class="px-6 pb-20 max-w-6xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            
+            <!-- Category 1: Thermal & Fluids -->
+            <div class="bento-card bg-white dark:bg-ios-darkCard p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800 animate-slide-up" style="animation-delay: 0.1s;">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="p-3 bg-red-100 dark:bg-red-900/30 rounded-xl text-red-600 dark:text-red-400">
+                        <i data-lucide="flame" class="w-6 h-6"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold">Thermal & Fluids</h2>
+                </div>
+                <ul class="space-y-4 course-list max-h-[350px] overflow-y-auto pr-2">
+                    <li class="pb-4 border-b border-gray-100 dark:border-gray-800 last:border-0">
+                        <div class="flex justify-between items-start mb-1">
+                            <span class="font-bold text-lg">Computational Fluid Dynamics</span>
+                            <span class="text-xs bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded-md text-gray-500">Graduate</span>
+                        </div>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">Advanced simulation techniques using Ansys Fluent. Turbulence modeling and mesh optimization.</p>
+                    </li>
+                    <li class="pb-4 border-b border-gray-100 dark:border-gray-800 last:border-0">
+                        <div class="flex justify-between items-start mb-1">
+                            <span class="font-bold text-lg">Advanced Heat Transfer</span>
+                            <span class="text-xs bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded-md text-gray-500">Graduate</span>
+                        </div>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">Conduction, convection, and radiation analysis. Heat exchanger design optimization.</p>
+                    </li>
+                     <li class="pb-4 border-b border-gray-100 dark:border-gray-800 last:border-0">
+                        <div class="flex justify-between items-start mb-1">
+                            <span class="font-bold text-lg">Thermodynamics II</span>
+                            <span class="text-xs bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded-md text-gray-500">Undergrad</span>
+                        </div>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">Exergy analysis, power cycles, and refrigeration systems.</p>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Category 2: Design & Mechanics -->
+            <div class="bento-card bg-white dark:bg-ios-darkCard p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800 animate-slide-up" style="animation-delay: 0.2s;">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="p-3 bg-blue-100 dark:bg-blue-900/30 rounded-xl text-blue-600 dark:text-blue-400">
+                        <i data-lucide="component" class="w-6 h-6"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold">Design & Mechanics</h2>
+                </div>
+                <ul class="space-y-4 course-list max-h-[350px] overflow-y-auto pr-2">
+                    <li class="pb-4 border-b border-gray-100 dark:border-gray-800 last:border-0">
+                        <div class="flex justify-between items-start mb-1">
+                            <span class="font-bold text-lg">Finite Element Analysis</span>
+                            <span class="text-xs bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded-md text-gray-500">Graduate</span>
+                        </div>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">Structural analysis using Ansys Mechanical. Stress/strain validation.</p>
+                    </li>
+                    <li class="pb-4 border-b border-gray-100 dark:border-gray-800 last:border-0">
+                        <div class="flex justify-between items-start mb-1">
+                            <span class="font-bold text-lg">Computer Aided Design</span>
+                            <span class="text-xs bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded-md text-gray-500">Undergrad</span>
+                        </div>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">Advanced modeling in Creo Parametric and SolidWorks. Surface modeling.</p>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Category 3: Industrial & Operations (NEW) -->
+            <div class="bento-card bg-white dark:bg-ios-darkCard p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800 animate-slide-up" style="animation-delay: 0.3s;">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="p-3 bg-green-100 dark:bg-green-900/30 rounded-xl text-green-600 dark:text-green-400">
+                        <i data-lucide="bar-chart-2" class="w-6 h-6"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold">Industrial Engineering</h2>
+                </div>
+                <ul class="space-y-4 course-list max-h-[350px] overflow-y-auto pr-2">
+                    <li class="pb-4 border-b border-gray-100 dark:border-gray-800 last:border-0">
+                        <div class="flex justify-between items-start mb-1">
+                            <span class="font-bold text-lg">Operations Research</span>
+                        </div>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">Optimization techniques, linear programming, and decision-making algorithms.</p>
+                    </li>
+                    <li class="pb-4 border-b border-gray-100 dark:border-gray-800 last:border-0">
+                        <div class="flex justify-between items-start mb-1">
+                            <span class="font-bold text-lg">Six Sigma</span>
+                        </div>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">Statistical quality control, DMAIC methodology, and process improvement.</p>
+                    </li>
+                    <li class="pb-4 border-b border-gray-100 dark:border-gray-800 last:border-0">
+                        <div class="flex justify-between items-start mb-1">
+                            <span class="font-bold text-lg">Cloud Architecture</span>
+                        </div>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">Cloud computing fundamentals, AWS/Azure infrastructure, and scalability.</p>
+                    </li>
+                    <li class="pb-4 border-b border-gray-100 dark:border-gray-800 last:border-0">
+                        <div class="flex justify-between items-start mb-1">
+                            <span class="font-bold text-lg">Foundational Technologies</span>
+                        </div>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">Overview of emerging tech ecosystems and digital transformation tools.</p>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Category 4: Mathematics & Methods (Adjusted to share row) -->
+            <div class="bento-card bg-white dark:bg-ios-darkCard p-8 rounded-3xl shadow-sm border border-gray-100 dark:border-gray-800 animate-slide-up" style="animation-delay: 0.4s;">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="p-3 bg-purple-100 dark:bg-purple-900/30 rounded-xl text-purple-600 dark:text-purple-400">
+                        <i data-lucide="sigma" class="w-6 h-6"></i>
+                    </div>
+                    <h2 class="text-2xl font-bold">Applied Mathematics</h2>
+                </div>
+                <!-- Changed internal grid to stacked list for better fit -->
+                <div class="space-y-4">
+                    <div class="p-4 bg-gray-50 dark:bg-gray-800 rounded-xl">
+                        <h3 class="font-bold mb-1">Engineering Mathematics</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">Partial Differential Equations (PDEs) and Linear Algebra.</p>
+                    </div>
+                    <div class="p-4 bg-gray-50 dark:bg-gray-800 rounded-xl">
+                        <h3 class="font-bold mb-1">Numerical Methods</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">MATLAB implementation of algorithms for solving engineering problems.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-10 text-center text-sm text-gray-400">
+        &copy; 2025 Danny Liu. <a href="index.html" class="text-ios-blue hover:underline">Return to Portfolio</a>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        lucide.createIcons();
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const html = document.documentElement;
+        
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            html.classList.add('dark');
+        } else {
+            html.classList.remove('dark');
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            html.classList.toggle('dark');
+            localStorage.theme = html.classList.contains('dark') ? 'dark' : 'light';
+        });
+    </script>
+</body>
+</html>
